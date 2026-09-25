@@ -169,48 +169,77 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     startCountUp();
 
-    // ===== BACKGROUND MUSIC CONTROLLER =====
-    const musicBtn = document.getElementById('musicToggle');
-    const bgAudio = document.getElementById('bgAudio');
+   // ===== BACKGROUND MUSIC CONTROLLER =====
+const musicBtn = document.getElementById('musicToggle');
+const bgAudio = document.getElementById('bgAudio');
 
-    if (musicBtn && bgAudio) {
-        // Ensure it plays once and stops
-        bgAudio.loop = false;
+if (musicBtn && bgAudio) {
 
-        function toggleMusic() {
-            if (bgAudio.paused) {
-                bgAudio.play().then(() => {
-                    musicBtn.classList.add('playing');
-                    musicBtn.setAttribute('title', 'Pause Music');
-                }).catch(err => {
-                    console.log('Audio playback permission needed:', err);
-                });
-            } else {
-                bgAudio.pause();
-                musicBtn.classList.remove('playing');
-                musicBtn.setAttribute('title', 'Play Reflections');
-            }
-        }
+    bgAudio.loop = false;
+    bgAudio.volume = 0;
 
-        musicBtn.addEventListener('click', toggleMusic);
+    let musicStarted = false;
 
-        // Turn off playing state when audio finishes (plays one time and stops)
-        bgAudio.addEventListener('ended', () => {
-            musicBtn.classList.remove('playing');
-            musicBtn.setAttribute('title', 'Play Reflections');
+    function playMusicOnce() {
+
+        if (musicStarted) return;
+
+        musicStarted = true;
+
+        bgAudio.currentTime = 0;
+        bgAudio.volume = 0;
+
+        bgAudio.play().then(() => {
+
+            musicBtn.classList.add('playing');
+            musicBtn.setAttribute('title', 'Playing Reflections');
+
+            // Slowly increase volume
+            let volume = 0;
+
+            const fadeIn = setInterval(() => {
+
+                volume += 0.02;
+
+                if (volume >= 1) {
+                    volume = 1;
+                    clearInterval(fadeIn);
+                }
+
+                bgAudio.volume = volume;
+
+            }, 100);
+
+        }).catch(error => {
+
+            console.log('Audio playback failed:', error);
+
+            // Allow another attempt if browser blocked it
+            musicStarted = false;
         });
-
-        // Try playing on first user interaction if blocked
-        const enableAudioOnFirstClick = () => {
-            if (bgAudio.paused) {
-                bgAudio.play().then(() => {
-                    musicBtn.classList.add('playing');
-                }).catch(() => {});
-            }
-            document.removeEventListener('click', enableAudioOnFirstClick);
-        };
-        document.addEventListener('click', enableAudioOnFirstClick, { once: true });
     }
+
+    // Start on first click/tap anywhere
+    document.addEventListener('click', playMusicOnce, { once: true });
+
+    // Also allow the music button to start it
+    musicBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        playMusicOnce();
+    });
+
+    // When song finishes, stop completely
+    bgAudio.addEventListener('ended', () => {
+
+        bgAudio.pause();
+        bgAudio.currentTime = 0;
+        bgAudio.volume = 0;
+
+        musicBtn.classList.remove('playing');
+        musicBtn.setAttribute('title', 'Play Reflections');
+
+    });
+}
 
     // ===== GALLERY FILTER =====
     const filterBtns = document.querySelectorAll('.filter-btn');
