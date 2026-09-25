@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Happy Birthday Sivali (Thangoo) - Celebrating Our Journey & Days of Love Together">
+    <title>Happy Birthday Sivali (Thangoo) - Our Love Story</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ===== PRELOADER ===== -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="preloader-text">Loading Birthday Surprise for Thangoo...</p>
+        </div>
+    </div>
+
+    <!-- ===== FLOATING MUSIC CONTROLLER ===== -->
+    <div class="music-controller-wrapper">
+        <button id="musicToggle" class="music-toggle-btn" aria-label="Toggle Background Music" title="Play Reflections - The Neighbourhood">
+            <i class="fas fa-music music-icon"></i>
+            <span class="music-label">Reflections</span>
+            <div class="music-waves">
+                <span></span><span></span><span></span>
+            </div>
+        </button>
+        <!-- Background Audio: Reflections by The Neighbourhood (Plays 1 time and stops) -->
+        <audio id="bgAudio" preload="auto">
+            <source src="music/reflections.mp3" type="audio/mpeg">
+            <source src="https://files.catbox.moe/87z9i1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header id="header" class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#home" class="nav-brand">
+                    <span class="brand-script">Happy Birthday Thangoo</span>
+                </a>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Sivali</a></li>
+                    <li><a href="#story" class="nav-link">Our Journey</a></li>
+                    <li><a href="#birthday" class="nav-link">Birthday Special</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO / BANNER ===== -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg" style="background-image: url('images/img_1.jpg');"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <div class="hero-ornament top-ornament">
+                <svg width="120" height="30" viewBox="0 0 120 30">
+                    <path d="M0,15 Q30,0 60,15 Q90,30 120,15" fill="none" stroke="rgba(212,163,115,0.6)" stroke-width="1.5"/>
+                </svg>
+            </div>
+            <p class="hero-subtitle" data-aos="fade-down" data-aos-delay="200">🎂 Happy Birthday My Dearest Thangoo! 🎂</p>
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="400">
+                <span class="hero-name">Sivali</span>
+                <span class="hero-ampersand">&</span>
+                <span class="hero-name">Me</span>
+            </h1>
+            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="600">Every single day with you is a gift I treasure forever</p>
+            <div class="hero-ornament bottom-ornament">
+                <svg width="120" height="30" viewBox="0 0 120 30">
+                    <path d="M0,15 Q30,30 60,15 Q90,0 120,15" fill="none" stroke="rgba(212,163,115,0.6)" stroke-width="1.5"/>
+                </svg>
+            </div>
+            
+            <!-- Count-Up Timer: Days of Our Love from Nov 12, 2024 -->
+            <div class="countdown-title-wrapper" data-aos="fade-up" data-aos-delay="700">
+                <span class="countdown-header-tag">Days of Our Love Together (Since Nov 12, 2024)</span>
+            </div>
+            <div class="countdown-wrapper" data-aos="fade-up" data-aos-delay="800">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            
+            <a href="#about" class="scroll-down-btn" data-aos="fade-up" data-aos-delay="1000">
+                <span>Explore Our Story</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT / COUPLE ===== -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">To My Beautiful Thangoo</span>
+                <h2 class="section-title">Two Souls, One Pure Love</h2>
+                <div class="section-ornament">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            
+            <div class="couple-wrapper">
+                <!-- Her -->
+                <div class="couple-card" data-aos="fade-right" data-aos-delay="200">
+                    <div class="couple-image-wrapper">
+                        <div class="couple-image">
+                            <img src="images/img_3.jpg" alt="Sivali Thangoo" loading="lazy">
+                        </div>
+                        <div class="couple-image-frame"></div>
+                    </div>
+                    <h3 class="couple-name">Sivali (Thangoo)</h3>
+                    <p class="couple-bio">With your radiant smile, gentle soul, and endless warmth, you make every ordinary day feel extraordinary. You are my sunshine, my happiness, and my whole world.</p>
+                </div>
+                
+                <!-- Ampersand -->
+                <div class="couple-divider" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="divider-heart">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span class="divider-ampersand">&</span>
+                </div>
+                
+                <!-- Him -->
+                <div class="couple-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="couple-image-wrapper">
+                        <div class="couple-image">
+                            <img src="images/img_4.jpg" alt="Together Forever" loading="lazy">
+                        </div>
+                        <div class="couple-image-frame"></div>
+                    </div>
+                    <h3 class="couple-name">Your Loved One</h3>
+                    <p class="couple-bio">Forever grateful for the day I saw you during our industrial visit. Blessed to stand by your side, cherish you, and make you smile every day of our lives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR STORY / TIMELINE ===== -->
+    <section id="story" class="section story-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">How It All Began</span>
+                <h2 class="section-title">Our Journey Together</h2>
+                <div class="section-ornament">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                
+                <!-- Timeline Item 1: Industrial Visit Tea & Anime Keychain (Poetic Version) -->
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-badge">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="images/img_1.jpg" alt="Industrial Visit - The First Glance" loading="lazy">
+                        </div>
+                        <div class="timeline-info">
+                            <span class="timeline-date">Chapter 1 • The Beginning</span>
+                            <h3 class="timeline-title">The Evening Sunset & The First Glance</h3>
+                            <p class="timeline-text">
+                                "As the golden sun began to set on our Industrial Visit, surrounded by the laughter of friends and the simple warmth of evening tea... A casual question about an anime keychain turned my entire world around. In that exact magical moment, my eyes met yours, and my heart melted forever."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2: November 2025 Anniversary, Game Center & Beach -->
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-badge">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="images/img_5.jpg" alt="Beach & Game Center Memories" loading="lazy">
+                        </div>
+                        <div class="timeline-info">
+                            <span class="timeline-date">Chapter 2 • November 2025</span>
+                            <h3 class="timeline-title">Our Anniversary & Endless Joy</h3>
+                            <p class="timeline-text">
+                                Celebrating our anniversary in November 2025! From thrilling games and non-stop laughter at the game center to quiet, hand-in-hand strolls along the ocean beach waves, every moment together became an everlasting core memory.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3: First Valentine's Day -->
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-badge">
+                        <i class="fas fa-gifts"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="images/valentines.jpg" alt="Our First Valentine's Day Together" loading="lazy">
+                        </div>
+                        <div class="timeline-info">
+                            <span class="timeline-date">Chapter 3 • Valentine's Special</span>
+                            <h3 class="timeline-title">Our Very First Valentine's Day</h3>
+                            <p class="timeline-text">
+                                Standing together under the bright blue sky on our very first Valentine's Day. With joyful hearts, matching superhero spirits, and smiles that light up our world, celebrating the sweet love we share.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BIRTHDAY SPECIAL SECTION ===== -->
+    <section id="birthday" class="section birthday-section">
+        <div class="container">
+            <div class="birthday-card" data-aos="zoom-in">
+                <div class="birthday-icon">
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+                <span class="section-subtitle">A Heartfelt Birthday Wish For My Thangoo</span>
+                <h2 class="birthday-title">Happy Birthday, Dearest Sivali!</h2>
+                <p class="birthday-message">
+                    "Happy Birthday to the most special person in my life, my precious Thangoo! Thank you for coming into my life and turning every day into a beautiful fairytale. May your birthday be filled with infinite joy, warmth, sweet surprises, and all the love you truly deserve. I love you endlessly!"
+                </p>
+                <div class="birthday-decor">
+                    <span>✨ 🎉 💖 🎈 🎂 💖 🎉 ✨</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARALLAX QUOTE ===== -->
+    <section class="parallax-quote" style="background-image: url('images/img_2.jpg');">
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content" data-aos="zoom-in">
+            <i class="fas fa-quote-left parallax-quote-icon"></i>
+            <p class="parallax-text">"I look at you and see the rest of my life in your eyes."</p>
+            <span class="parallax-author">— Listening to 'Reflections' with You ❤️</span>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Capturing Our Sweetest Moments</span>
+                <h2 class="section-title">Our Photo Album</h2>
+                <div class="section-ornament">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            
+            <!-- Gallery Filter -->
+            <div class="gallery-filter" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="romantic">Romantic</button>
+                <button class="filter-btn" data-filter="adventures">Memories</button>
+                <button class="filter-btn" data-filter="special">Special</button>
+            </div>
+            
+            <!-- Gallery Grid featuring all 11 images -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Image 1 -->
+                <div class="gallery-item romantic" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-image">
+                        <img src="images/img_1.jpg" alt="Industrial Visit - First Look" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>The First Look</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="gallery-item romantic" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="gallery-image">
+                        <img src="images/img_2.jpg" alt="Night Date Romance" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Romantic Night</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="gallery-item special" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-image">
+                        <img src="images/img_3.jpg" alt="Sivali Traditional Saree" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Elegant Sivali</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="gallery-item adventures" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="gallery-image">
+                        <img src="images/img_4.jpg" alt="Fun Moments Together" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Fun Times</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="gallery-item adventures" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="gallery-image">
+                        <img src="images/img_5.jpg" alt="Beach Sunset Walk" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Beach Glow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="gallery-item romantic" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="gallery-image">
+                        <img src="images/img_6.jpg" alt="Thangoo Sweet Smile" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Sweet Smile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 7 -->
+                <div class="gallery-item special" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="gallery-image">
+                        <img src="images/img_7.jpg" alt="Anniversary Celebration" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Anniversary Memory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 8 -->
+                <div class="gallery-item romantic" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="gallery-image">
+                        <img src="images/img_8.jpg" alt="Warm Embrace" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Warm Hugs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 9 -->
+                <div class="gallery-item adventures" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="gallery-image">
+                        <img src="images/img_9.jpg" alt="Game Center Outing" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Game Center Day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 10 -->
+                <div class="gallery-item special" data-aos="zoom-in" data-aos-delay="550">
+                    <div class="gallery-image">
+                        <img src="images/img_10.jpg" alt="Precious Moment" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Precious Moment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 11 (Valentine's Day Special) -->
+                <div class="gallery-item special" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="gallery-image">
+                        <img src="images/valentines.jpg" alt="First Valentine's Day Together" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <i class="fas fa-search-plus"></i>
+                                <span>First Valentine's Day ❤️</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery image" id="lightboxImage">
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-brand">
+                    <span class="footer-logo">Happy Birthday Sivali (Thangoo)</span>
+                    <p class="footer-tagline">Counting every second of our love since November 12, 2024 ❤️</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Forever Yours. Crafted with endless love for Thangoo <i class="fas fa-heart" style="color: #E29578;"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-angle-up"></i>
+    </button>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
