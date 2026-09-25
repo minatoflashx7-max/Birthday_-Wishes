@@ -487,5 +487,50 @@
     <!-- AOS Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
+    <audio id="bgAudio" preload="auto">
+    <source src="10%20-%20The%20Neighbourhood%20-%20Reflections.m4a" type="audio/mp4">
+</audio>
+
+<script>
+const bgAudio = document.getElementById("bgAudio");
+
+bgAudio.volume = 0;
+
+// Fade in slowly
+function fadeInAudio() {
+    bgAudio.currentTime = 0;
+    bgAudio.volume = 0;
+
+    const playPromise = bgAudio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            let volume = 0;
+
+            const fade = setInterval(() => {
+                volume += 0.02;
+
+                if (volume >= 1) {
+                    volume = 1;
+                    clearInterval(fade);
+                }
+
+                bgAudio.volume = volume;
+            }, 100);
+        }).catch(error => {
+            console.log("Audio could not autoplay:", error);
+        });
+    }
+}
+
+// Play ONLY ONCE
+bgAudio.addEventListener("ended", () => {
+    bgAudio.pause();
+    bgAudio.currentTime = 0;
+});
+
+// Start when the user first interacts with the page
+document.addEventListener("click", fadeInAudio, { once: true });
+</script>
 </body>
 </html>
